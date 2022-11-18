@@ -10,7 +10,7 @@
 
 using namespace std;
 
-class Cubo
+class Cube
 {
     public:
         float size = 10.0;
@@ -18,8 +18,8 @@ class Cubo
         float Position[3] = {0.0, size, 0.0};
         float Direction[3] = {0.0, size, 0.0};
 
-        Cubo(int, float);
-        ~Cubo();
+        Cube(int, float);
+        ~Cube();
         void draw();
         void update();
 

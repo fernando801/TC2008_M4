@@ -50,9 +50,6 @@ void Sphere::update()
     float new_x = Position[0] + Direction[0];
     float new_z = Position[2] + Direction[2];
 
-    // cout << "X=" << Position[0] << "; Y= " << Position[1] << "; Z= " << Position[2] << endl;
-
-
     if (abs(new_x) <= DimBoard)
         Position[0] = new_x;
     else {
@@ -67,5 +64,4 @@ void Sphere::update()
         Position[2] += Direction[2];
     }
 
-    // cout << "X=" << Position[0] << "; Y= " << Position[1] << "; Z= " << Position[2] << endl;
 }

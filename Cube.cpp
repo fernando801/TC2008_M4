@@ -1,6 +1,6 @@
-#include "Cubo.h"
+#include "Cube.h"
 
-Cubo::Cubo(int dim, float vel)
+Cube::Cube(int dim, float vel)
 {
     DimBoard = dim;
     //srand(time(nullptr));
@@ -27,12 +27,12 @@ Cubo::Cubo(int dim, float vel)
     // cout << Direction[2] << endl;
 }
 
-Cubo::~Cubo()
+Cube::~Cube()
 {
     //dtor
 }
 
-void Cubo::draw()
+void Cube::draw()
 {
     glPushMatrix();
     glTranslatef(Position[0], Position[1], Position[2]);
@@ -49,12 +49,10 @@ void Cubo::draw()
     glPopMatrix();
 }
 
-void Cubo::update()
+void Cube::update()
 {
     float new_x = Position[0] + Direction[0];
     float new_z = Position[2] + Direction[2];
-
-    cout << "X=" << Position[0] << "; Y= " << Position[2] << endl;
 
     if (abs(new_x) <= DimBoard)
         Position[0] = new_x;

@@ -9,7 +9,7 @@
 #include <random>
 #include <iomanip>
 
-#include "Cubo.h"
+#include "Cube.h"
 #include "Sphere.h"
 
 // Variables dimensiones de la pantalla
@@ -42,10 +42,10 @@ int DimBoard = 200;
 
 void *objects[10];
 
-Cubo c1(DimBoard, 0.3);
-Cubo c2(DimBoard, 0.6);
-Cubo c3(DimBoard, 0.2);
-Cubo c4(DimBoard, 1.0);
+Cube c1(DimBoard, 0.3);
+Cube c2(DimBoard, 0.6);
+Cube c3(DimBoard, 0.2);
+Cube c4(DimBoard, 1.0);
 
 void drawAxis()
 {
@@ -106,10 +106,10 @@ void display()
         {
             if (
                 i != j && sqrt(
-                    pow(((Cubo *)objects[i])->Position[0] + ((Cubo *)objects[i])->Direction[0] - ((Cubo *)objects[j])->Position[0], 2) +
-                    pow(((Cubo *)objects[i])->Position[1] + ((Cubo *)objects[i])->Direction[1] - ((Cubo *)objects[j])->Position[1], 2) +
-                    pow(((Cubo *)objects[i])->Position[2] + ((Cubo *)objects[i])->Direction[2] - ((Cubo *)objects[j])->Position[2], 2)
-                ) < (((Cubo *)objects[i])->radius + ((Cubo *)objects[j])->radius))
+                    pow(((Cube *)objects[i])->Position[0] + ((Cube *)objects[i])->Direction[0] - ((Cube *)objects[j])->Position[0], 2) +
+                    pow(((Cube *)objects[i])->Position[1] + ((Cube *)objects[i])->Direction[1] - ((Cube *)objects[j])->Position[1], 2) +
+                    pow(((Cube *)objects[i])->Position[2] + ((Cube *)objects[i])->Direction[2] - ((Cube *)objects[j])->Position[2], 2)
+                ) < (((Cube *)objects[i])->radius + ((Cube *)objects[j])->radius))
             {
                 move = false;
             }
@@ -119,10 +119,10 @@ void display()
         {
             if (
                 sqrt(
-                    pow(((Cubo *)objects[i])->Position[0] + ((Cubo *)objects[i])->Direction[0] - ((Sphere *)objects[j])->Position[0], 2) +
-                    pow(((Cubo *)objects[i])->Position[1] + ((Cubo *)objects[i])->Direction[1] - ((Sphere *)objects[j])->Position[1], 2) +
-                    pow(((Cubo *)objects[i])->Position[2] + ((Cubo *)objects[i])->Direction[2] - ((Sphere *)objects[j])->Position[2], 2)
-                ) < (((Cubo *)objects[i])->radius + ((Cubo *)objects[j])->radius))
+                    pow(((Cube *)objects[i])->Position[0] + ((Cube *)objects[i])->Direction[0] - ((Sphere *)objects[j])->Position[0], 2) +
+                    pow(((Cube *)objects[i])->Position[1] + ((Cube *)objects[i])->Direction[1] - ((Sphere *)objects[j])->Position[1], 2) +
+                    pow(((Cube *)objects[i])->Position[2] + ((Cube *)objects[i])->Direction[2] - ((Sphere *)objects[j])->Position[2], 2)
+                ) < (((Cube *)objects[i])->radius + ((Cube *)objects[j])->radius))
             {
                 move = false;
             }
@@ -130,7 +130,7 @@ void display()
 
         if (move)
         {
-            ((Cubo *)objects[i])->update();
+            ((Cube *)objects[i])->update();
         }
     }
 
@@ -141,10 +141,10 @@ void display()
         {
             if (
                 sqrt(
-                    pow(((Sphere *)objects[i])->Position[0] + ((Sphere *)objects[i])->Direction[0] - ((Cubo *)objects[j])->Position[0], 2) +
-                    pow(((Sphere *)objects[i])->Position[1] + ((Sphere *)objects[i])->Direction[1] - ((Cubo *)objects[j])->Position[1], 2) +
-                    pow(((Sphere *)objects[i])->Position[2] + ((Sphere *)objects[i])->Direction[2] - ((Cubo *)objects[j])->Position[2], 2)
-                ) < (((Sphere *)objects[i])->radius + ((Cubo *)objects[j])->radius))
+                    pow(((Sphere *)objects[i])->Position[0] + ((Sphere *)objects[i])->Direction[0] - ((Cube *)objects[j])->Position[0], 2) +
+                    pow(((Sphere *)objects[i])->Position[1] + ((Sphere *)objects[i])->Direction[1] - ((Cube *)objects[j])->Position[1], 2) +
+                    pow(((Sphere *)objects[i])->Position[2] + ((Sphere *)objects[i])->Direction[2] - ((Cube *)objects[j])->Position[2], 2)
+                ) < (((Sphere *)objects[i])->radius + ((Cube *)objects[j])->radius))
             {
                 move = false;
             }
@@ -171,7 +171,7 @@ void display()
 
     for (int i = 0; i < 5; i++)
     {
-        ((Cubo *)objects[i])->draw();
+        ((Cube *)objects[i])->draw();
     }
 
     for (int i = 5; i < 10; i++)
@@ -219,7 +219,7 @@ int main(int argc, char **argv)
 {
     for (int i = 0; i < 5; i++)
     {
-        objects[i] = new Cubo(DimBoard, 1);
+        objects[i] = new Cube(DimBoard, 1);
     }
 
     for (int i = 5; i < 10; i++)
@@ -231,7 +231,7 @@ int main(int argc, char **argv)
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
     glutInitWindowPosition(100, 100);
     glutInitWindowSize(WIDTH, HEIGTH);
-    glutCreateWindow("Cubo 1");
+    glutCreateWindow("Cube 1");
     init();
     glutDisplayFunc(display);
     glutIdleFunc(idle);
