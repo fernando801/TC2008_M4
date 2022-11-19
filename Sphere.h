@@ -38,7 +38,7 @@ class Sphere
                   6,2,1,5, 6,5,4,7, 6,7,3,2  };
 
         //Vector de direccion
-        float Color[3] = {0.0, 0.0, 0.0};
+        float Color[3] = {0.0, 1.0, 1.0};
         int DimBoard;
 
 };
