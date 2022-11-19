@@ -1,0 +1,9 @@
+Comando para compilar el proyecto en Linux:
+
+g++ main.cpp Cube.h Cube.cpp Sphere.h Sphere.cpp -lglut -lGLU -lGL
+
+
+
+Ejecutar como:
+
+./a.out
